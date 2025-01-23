@@ -20,9 +20,24 @@ export class HomeComponent implements OnInit,AfterViewInit{
   error = false
   loading = false
   ngOnInit(): void {
-      this.posts = this.api.getPosts("https://jsonplaceholder.typicode.com/posts")
-      this.error = this.api.getError()
-      this.loading = this.api.getLoading()
+    
+    this.loading = true
+     this.api.getPosts("https://jsonplaceholder.typicode.com/posts").subscribe({
+      next:(value)=> {
+        this.loading = false
+        this.error = false
+        this.posts = value as Info[]
+      },
+      error:()=> {
+        this.error = true
+        this.loading = false
+      },
+      complete:()=>{
+        this.error = false
+        this.loading = false
+      }
+     })
+      
       
       
       

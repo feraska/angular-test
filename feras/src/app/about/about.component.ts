@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-about',
@@ -11,6 +12,7 @@ export class AboutComponent {
   // @Input() data!: string ;
   list:string[] = ["feras","ameer","sanad","sohel"]
   count = 0
+  
   incremet() {
     this.count++
     
