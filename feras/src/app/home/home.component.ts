@@ -17,12 +17,13 @@ export class HomeComponent implements OnInit,AfterViewInit{
   
   })
   posts: Info[] = []
-   
+  error = false
+  loading = false
   ngOnInit(): void {
-      this.api.getPosts("https://jsonplaceholder.typicode.com/posts").subscribe((data)=>{
-        this.posts = data
-        
-      })
+      this.posts = this.api.getPosts("https://jsonplaceholder.typicode.com/posts")
+      this.error = this.api.getError()
+      this.loading = this.api.getLoading()
+      
       
       
      
