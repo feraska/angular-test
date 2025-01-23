@@ -1,0 +1,8 @@
+::ng-deep .green {
+    color: green;
+    display: block;
+}
+::ng-deep .red {
+    color: red;
+    display: block;
+}
